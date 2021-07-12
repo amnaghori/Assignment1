@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+
+public class QuickSortAlgoClass {
+  public void quickSort(ArrayList<Integer> a, int beg, int end) {
+        int loc;
+        if (beg < end) {
+            loc = partition(a, beg, end);
+            quickSort(a, beg, loc - 1);
+            quickSort(a, loc + 1, end);
+        }
+    }
+  
+  public int partition(ArrayList<Integer> arr, int beg, int end)
+    {
+        int pivot = arr.get(end); 
+        int i = (beg-1); 
+        for (int j=beg; j<end; j++)
+        {
+            if (arr.get(j) <= pivot)
+            {
+                i++;
+                int temp = arr.get(i);
+                arr.set(i, arr.get(j));
+                arr.set(j, temp);
+            }
+        }
+  
+        int temp = arr.get(i+1);
+        arr.set(i+1, arr.get(end));
+        arr.set(end, temp);
+  
+        return i+1;
+    }
+
+}
