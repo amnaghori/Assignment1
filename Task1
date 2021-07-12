@@ -1,0 +1,29 @@
+public class Task {
+
+    public static void isCommonChar(String str1, String str2) {
+        int checker = 0;
+        for (int i = 0; i < str1.length(); i++) {
+            int val = str1.charAt(i) - 'a';
+            int bitShifting = 1 << val;
+            if ((checker & bitShifting) > 0) {
+                continue;
+            }
+            checker |= bitShifting;
+        }
+
+        for (int i = 0; i < str2.length(); i++) {
+            int val = str2.charAt(i) - 'a';
+            int bitShifting = 1 << val;
+//            System.out.println("checker: " + checker);
+            if ((checker & bitShifting) > 0) {
+                System.out.println("'" + str2.charAt(i) + "' is common!");
+                break;
+            }
+            checker |= bitShifting;
+        }
+    }
+
+    public static void main(String[] args) {
+        isCommonChar("abczxcc", "edoucyi");
+    }
+}
