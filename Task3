@@ -4,7 +4,6 @@ public class Palindrome {
 
     public static void main(String[] args) {
 
-        //Palindrome
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
