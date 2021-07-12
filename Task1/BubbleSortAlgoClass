@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+public class BubbleSortAlgoClass {
+   public void bubbleSort(ArrayList<Integer> arr) {
+        int temp;
+        for (int i = 0; i < arr.size(); i++) {
+            for (int j = 1; j < (arr.size() - i); j++) {
+                if (Integer.valueOf(arr.get(j - 1).toString()).compareTo(Integer.valueOf(arr.get(j).toString())) > 0) {
+                    temp = Integer.valueOf(arr.get(j - 1).toString());
+                    arr.set(j - 1, Integer.valueOf(arr.get(j).toString()));
+                    arr.set(j, temp);
+                }
+            }
+        }
+    }
+}
