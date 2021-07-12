@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Palindrome {
+
+    public static void main(String[] args) {
+
+        //Palindrome
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        StringBuffer sb1 = new StringBuffer(input);
+        StringBuffer sb2 = new StringBuffer(sb1);
+        sb2.reverse();
+
+        if (sb1.toString().equals(sb2.toString())) {
+//        if (sb1.toString().compareTo(sb2.toString()) == 0) {
+            System.out.println("Input string is palidrome!");
+        } else {
+            System.out.println("Input string is not palidrome!");
+        }
+    }
+
+}
