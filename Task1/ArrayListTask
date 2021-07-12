@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class ArrayListTask {
+  
+    public static void main(String[] args) {
+        
+        ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(3,2,9,45,10,3,11,3));
+        ArrayList<Integer> arr2 = arr;
+      	
+        
+        BubbleSortAlgoClass bubbleSortAlgoClass = new BubbleSortAlgoClass();
+        bubbleSortAlgoClass.bubbleSort(arr);
+
+      	QuickSortAlgoClass quickSortAlgoClass = new QuickSortAlgoClass();
+      	quickSortAlgoClass.quickSort(arr2, 0, arr2.size()-1);
+      
+        System.out.println("Sorted List (Quick Sort)");
+        for (int i = 0; i < arr.size(); i++) {
+            System.out.print(arr.get(i) + " ");
+        }
+      
+      	System.out.println("\n--------------\nSorted List (Bubble Sort)");
+        for (int i = 0; i < arr2.size(); i++) {
+            System.out.print(arr2.get(i) + " ");
+        }
+    }
+}
