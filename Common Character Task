@@ -1,29 +1,51 @@
-public class Task {
+package Class_Task;
 
-    public static void isCommonChar(String str1, String str2) {
+import java.util.Scanner;
+
+/**
+ * program to determine first common character in two character arrays
+ * Constraints : 
+ * Time complexity for this code O(m+n). 
+ * The space complexity
+ * should be O(1), and try within 40 bits. 
+ * The character array can only hold the lowercase letters a through z. 
+ * No existing comparison functions are allowed.
+ *
+ * @author Amna Ghori
+ */
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first string: ");
+        String str1 = sc.nextLine();
+        System.out.println("Enter second string: ");
+        String str2 = sc.nextLine();
+        char ch = commonCharacter(str1, str2);
+        System.out.println(ch == 0 ? "Nothing's common!" : "'" + ch + "' is common!");
+    }
+
+    public static char commonCharacter(String str1, String str2) {
         int checker = 0;
         for (int i = 0; i < str1.length(); i++) {
             int val = str1.charAt(i) - 'a';
             int bitShifting = 1 << val;
-            if ((checker & bitShifting) > 0) {
-                continue;
+            if ((checker & bitShifting) == 0) {
+                checker |= bitShifting;
             }
-            checker |= bitShifting;
         }
 
         for (int i = 0; i < str2.length(); i++) {
             int val = str2.charAt(i) - 'a';
             int bitShifting = 1 << val;
-//            System.out.println("checker: " + checker);
             if ((checker & bitShifting) > 0) {
-                System.out.println("'" + str2.charAt(i) + "' is common!");
-                break;
+                return str2.charAt(i);
             }
-            checker |= bitShifting;
         }
+        return 0;
     }
 
-    public static void main(String[] args) {
-        isCommonChar("abczxcc", "edoucyi");
-    }
 }
