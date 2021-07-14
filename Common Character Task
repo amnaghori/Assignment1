@@ -6,18 +6,15 @@ import java.util.Scanner;
  * program to determine first common character in two character arrays
  * Constraints : 
  * Time complexity for this code O(m+n). 
- * The space complexity
- * should be O(1), and try within 40 bits. 
- * The character array can only hold the lowercase letters a through z. 
- * No existing comparison functions are allowed.
+ * 1. The space complexity
+ * 2. The space complexity should be O(1), and try within 40 bits. 
+ * 3. The character array can only hold the lowercase letters a through z. 
+ * 4. No existing comparison functions are allowed.
  *
  * @author Amna Ghori
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter first string: ");
