@@ -1,0 +1,31 @@
+package com.sl;
+
+import myUtil.LinkedList;
+import myUtil.DoublyLinkedList;
+
+/**
+ *
+ * @author Amna Ghori
+ */
+public class Main {
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.insertAtLast(9);
+        list.insertAtLast(0);
+        list.insertAtLast(5);
+        list.insertAtLast(88);
+        list.insertAtLast(2);
+        list.insertAtFirst(50);
+        list.insert(4, 66);
+        list.remove(6);
+        list.print();
+        list.set(4, 100);
+        System.out.println("Sorted list:");
+        list.sort();
+        list.print();
+        System.out.println("Value at index " + 4 + " is '" + list.get(4) + "'");
+        System.out.println("Size of list is: " + list.size());
+        System.out.println("List is empty? " + list.isEmpty());
+    }
+}
