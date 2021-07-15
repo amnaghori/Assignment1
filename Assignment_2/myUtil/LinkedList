@@ -1,0 +1,140 @@
+package myUtil;
+
+/**
+ * Implementation of LinkedList
+ *
+ * @author Amna Ghori
+ */
+public class LinkedList {
+
+    private Node head;
+
+    // method to insert elements at last
+    public void insertAtLast(int data) {
+        Node node = new Node(data, null);
+
+        if (head == null) {
+            head = node;
+        } else {
+            Node n = head;
+            while (n.nextNode != null) {
+                n = n.nextNode;
+            }
+            n.nextNode = node;
+        }
+    }
+
+    // method to insert elements at start
+    public void insertAtFirst(int data) {
+        Node node = new Node(data, head);
+        head = node;
+    }
+
+    // method to insert elements at specific index number
+    public void insert(int index, int data) {
+        if (index == 0) {
+            insertAtFirst(data);
+        } else {
+            Node node = new Node(data, null);
+            Node n = head;
+            int i = 0;
+            while (i < index - 1) {
+                n = n.nextNode;
+                i++;
+            }
+            node.nextNode = n.nextNode;
+            n.nextNode = node;
+        }
+    }
+
+    // method to delete from specific index number
+    public void remove(int index) {
+        if (index == 0) {
+            head = head.nextNode;
+        } else {
+            Node n = head;
+            int i = 0;
+            while (i < index - 1) {
+                n = n.nextNode;
+                i++;
+            }
+            n.nextNode = n.nextNode.nextNode;
+        }
+    }
+
+    // method to display all elements
+    public void print() {
+        Node node = head;
+        while (node.nextNode != null) {
+            System.out.print(node.data + " ");
+            node = node.nextNode;
+        }
+        System.out.println(node.data);
+    }
+
+    // method to display only specific element
+    public Object get(int index) {
+        Node n = head;
+        int i = 0;
+        while (i <= index) {
+            if (i == index) {
+                return n.data;
+            }
+            n = n.nextNode;
+            i++;
+        }
+        return null;
+    }
+
+    // method to change/update value at specific index
+    public void set(int index, int data) {
+        Node n = head;
+        int i = 0;
+        while (i <= index) {
+            if (i == index) {
+                n.data = data;
+            }
+            n = n.nextNode;
+            i++;
+        }
+    }
+
+    // method to insert elements at specific index number
+    public int size() {
+        Node n = head;
+        int i = 0;
+        while (n.nextNode != null) {
+            n = n.nextNode;
+            i++;
+        }
+        return i + 1;
+    }
+
+    // method to sort list elements by using bubble sort algo
+    public void sort() {
+        Node i = head;
+        while (i.nextNode != null) {
+            Node n = head;
+            int temp;
+            while (n.nextNode != null) {
+                if (n.data > n.nextNode.data) {
+                    temp = n.data;
+                    n.data = n.nextNode.data;
+                    n.nextNode.data = temp;
+                }
+
+                n = n.nextNode;
+            }
+            i = i.nextNode;
+        }
+
+    }
+
+    public boolean isEmpty() {
+        if (head == null) {
+            return true;
+        }
+        return false;
+    }
+
+}
