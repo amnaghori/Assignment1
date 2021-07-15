@@ -1,0 +1,18 @@
+package myUtil;
+
+/**
+ * Linked list node 
+ *
+ * @author Amna Ghori
+ */
+public class Node {
+
+    int data;
+    Node nextNode;
+
+    // Constructor for creating node
+    Node(int data, Node nextNode) {
+        this.data = data;
+        this.nextNode = nextNode;
+    }
+}
