@@ -1,0 +1,43 @@
+package util;
+
+/**
+ *
+ * @author Amna Ghori
+ */
+public class Node {
+
+    private Node left, right;
+    private int data;
+
+    // Constructor to create a node
+    public Node(int n) {
+        left = null;
+        right = null;
+        data = n;
+    }
+
+    // Getters and setters
+    public Node getLeft() {
+        return left;
+    }
+
+    public void setLeft(Node left) {
+        this.left = left;
+    }
+
+    public Node getRight() {
+        return right;
+    }
+
+    public void setRight(Node right) {
+        this.right = right;
+    }
+
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+}
