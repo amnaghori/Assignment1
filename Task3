@@ -1,23 +1,33 @@
 import java.util.Scanner;
 
+/**
+ * Implementation of Palindrome by using StringBuilder class
+ *
+ * @author Amna Ghori
+ */
 public class Palindrome {
 
     public static void main(String[] args) {
 
+        // taking user input
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
         StringBuffer sb1 = new StringBuffer(input);
         StringBuffer sb2 = new StringBuffer(sb1);
-        sb2.reverse();
+        String reverse = "";
 
-        if (sb1.toString().equals(sb2.toString())) {
-//        if (sb1.toString().compareTo(sb2.toString()) == 0) {
-            System.out.println("Input string is palidrome!");
+        // reverse the input string character by character 
+        for (int i = sb2.length()-1; i >= 0; i--) {
+            reverse += sb2.charAt(i);
+        }
+
+        // check if the input string and reverse of that string is equal or not
+        if (sb1.toString().equals(reverse)) {
+            System.out.println("Palidrome!");
         } else {
-            System.out.println("Input string is not palidrome!");
+            System.out.println("Not a palidrome!");
         }
     }
-
 }
