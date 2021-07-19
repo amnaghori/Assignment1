@@ -1,0 +1,19 @@
+package task6;
+
+import java.util.Stack;
+
+/**
+ * To implement Fibonacci series using STACK - no recursive function
+ *
+ * @author Amna Ghori
+ */
+public class Main {
+
+    public static void main(String[] args) {
+        FibonacciSeries fs = new FibonacciSeries();
+        // generating the first 20 fibonacci numbers
+        int limit = 20;
+        Stack s = fs.generateFibonacciSeries(limit);
+        System.out.println("Fibonacci sequence of first " + limit + " numbers:\n" + s);
+    }
+}
