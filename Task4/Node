@@ -1,6 +1,7 @@
 package util;
 
 /**
+ * Implementation of binary tree node class 
  *
  * @author Amna Ghori
  */
