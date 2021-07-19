@@ -1,0 +1,38 @@
+package task5;
+
+import java.util.Stack;
+
+/**
+ * Implementation of Fibonacci series using STACK
+ *
+ * @author Amna Ghori
+ */
+public class FibonacciSeries {
+
+    /**
+     * @param limit
+     */
+    public Stack generateFibonacciSeries(int limit) {
+        Stack<Integer> stack = new Stack<>();
+        // adding two initial numbers of fibonacci series in stack
+        stack.push(0);
+        stack.push(1);
+
+        int i = 2, temp1, temp2;
+
+        while (i < limit) {
+            // removing first (n) and second (n-1) element from stack and 
+            // storing in variables
+            temp1 = stack.pop();
+            temp2 = stack.pop();
+
+            // adding deleted elements back and sum of these elements in stack
+            stack.push(temp2);
+            stack.push(temp1);
+            stack.push(temp1 + temp2);
+            
+            i++;
+        }
+        return stack;
+    }
+}
