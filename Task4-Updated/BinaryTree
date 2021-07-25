@@ -1,0 +1,109 @@
+package util;
+
+/**
+ * Implementation of BinaryTree using LinkedList
+ *
+ * @author Amna Ghori
+ */
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class BinaryTree {
+
+    private Node head;
+    private BinaryTreeNode root;
+
+    // Method to insert a node at the end
+    public void push(int data) {
+        Node node = new Node(data);
+
+        if (head == null) {
+            head = node;
+        } else {
+            Node n = head;
+            while (n.getNext() != null) {
+                n = n.getNext();
+            }
+            n.setNext(node);
+        }
+    }
+
+    // Method to convert a list into binary tree
+    public BinaryTreeNode convertList2BinaryTree(BinaryTreeNode node) {
+        Queue<BinaryTreeNode> q = new LinkedList<>();
+
+        if (head == null) {
+            node = null;
+            return null;
+        }
+
+        node = new BinaryTreeNode(head.getData());
+        q.add(node);
+
+        head = head.getNext();
+
+        while (head != null) {
+            BinaryTreeNode parent = q.poll();
+
+            BinaryTreeNode leftChild = null, rightChild = null;
+            leftChild = new BinaryTreeNode(head.getData());
+            q.add(leftChild);
+            head = head.getNext();
+            if (head != null) {
+                rightChild = new BinaryTreeNode(head.getData());
+                q.add(rightChild);
+                head = head.getNext();
+            }
+
+            parent.setLeft(leftChild);
+            parent.setRight(rightChild);
+        }
+
+        return node;
+    }
+
+    // Method to print nodes by using preorder traversing of tree
+    public void preOrderTraversal(BinaryTreeNode node) {
+        if (node != null) {
+            System.out.print(node.getData() + " ");
+            preOrderTraversal(node.getLeft());
+            preOrderTraversal(node.getRight());
+        }
+    }
+
+    // Method to print nodes by using postorder traversing of tree
+    public void postOrderTraversal(BinaryTreeNode node) {
+        if (node != null) {
+            preOrderTraversal(node.getLeft());
+            preOrderTraversal(node.getRight());
+            System.out.print(node.getData() + " ");
+        }
+    }
+
+    // Method to print nodes by using inorder traversing of tree
+    public void inOrderTraversal(BinaryTreeNode node) {
+        if (node != null) {
+            preOrderTraversal(node.getLeft());
+            System.out.print(node.getData() + " ");
+            preOrderTraversal(node.getRight());
+        }
+    }
+
+    // Getters and setters
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
+    public BinaryTreeNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(BinaryTreeNode root) {
+        this.root = root;
+    }
+
+}
