@@ -1,0 +1,32 @@
+package com.sl;
+
+import util.BinaryTree;
+import util.BinaryTreeNode;
+
+/**
+ * To implement BinaryTree using java.util.LinkedList class
+ *
+ * @author Amna Ghori
+ */
+public class Main {
+
+    public static void main(String args[]) {
+        BinaryTree bt = new BinaryTree();
+        bt.push(10); 
+        bt.push(12);
+        bt.push(15);
+        bt.push(25);
+        bt.push(30);
+        bt.push(36); 
+        
+        BinaryTreeNode node = bt.convertList2BinaryTree(bt.getRoot());
+  
+        // Printing the binary tree by using 3 different traversal methods 
+        System.out.print("In-Order Traversal: ");
+        bt.inOrderTraversal(node);
+        System.out.print("\nPre-Order Traversal: ");
+        bt.preOrderTraversal(node);
+        System.out.print("\nPost-Order Traversal: ");
+        bt.postOrderTraversal(node);
+    }
+}
