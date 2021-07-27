@@ -3,7 +3,7 @@ package Class_Task;
 import java.util.Scanner;
 
 /**
- * program to determine first common character in two character arrays
+ * <h1>Program to determine first common character in two character arrays<h1>
  * Constraints : 
  * 1. Time complexity for this code O(m+n). 
  * 2. The space complexity should be O(1), and try within 40 bits. 
@@ -24,13 +24,22 @@ public class Main {
     }
 
     public static void commonCharacter(char[] ch1, char[] ch2) {
+    
+        /**
+         * 
+         * @param ch1 - first user input character array
+         * @param ch2 - second user input character array
+         */
+     
         byte i; // will occupy 8 bits in memory
         int checker = 0; // will occupy 32 bits in memory
 
+        // storing bits of first character array by left shifting bits
         for (i = 0; i < ch1.length; i++) {
             checker |= 1 << (ch1[i] - 'a');
         }
 
+        // checking if any letter of second character array is equal to the letters of first character array 
         for (i = 0; i < ch2.length; i++) {
             if ((checker & (1 << (ch2[i] - 'a'))) > 0) {
                 System.out.println("'" + ch2[i] + "' is common!");
