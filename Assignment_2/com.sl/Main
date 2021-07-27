@@ -3,6 +3,7 @@ package com.sl;
 import myUtil.LinkedList;
 
 /**
+ * Program to implement singly linked list 
  *
  * @author Amna Ghori
  */
